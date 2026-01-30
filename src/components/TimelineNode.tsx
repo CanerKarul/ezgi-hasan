@@ -56,7 +56,7 @@ const TimelineNode: React.FC<TimelineNodeProps> = ({ memory, index, onOpen }) =>
                 {memory.locked ? (
                     <div className={styles.lockedContent}>
                         <Lock size={20} className={styles.icon} />
-                        <span>Locked Memory</span>
+                        <span>Kilitli Anı</span>
                     </div>
                 ) : (
                     <>
@@ -84,14 +84,14 @@ const TimelineNode: React.FC<TimelineNodeProps> = ({ memory, index, onOpen }) =>
                             {memory.type === 'text' && (
                                 <div className={styles.textPreview}>
                                     <FileText size={24} className={styles.textIcon} />
-                                    <p>{memory.title || "Read Memory"}</p>
+                                    <p>{memory.title || "Anıyı Oku"}</p>
                                 </div>
                             )}
                         </div>
 
                         <div className={styles.cardFooter}>
                             <span className={styles.viewLabel}>
-                                {memory.type === 'text' ? 'Read' : 'View'}
+                                {memory.type === 'text' ? 'Oku' : 'İncele'}
                             </span>
                         </div>
                     </>

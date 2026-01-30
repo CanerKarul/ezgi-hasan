@@ -10,17 +10,25 @@ const FinalSection: React.FC = () => {
         const checkDate = () => {
             const now = new Date();
             const currentYear = now.getFullYear();
-            // Locked until Feb 3rd of current year
-            const targetDate = new Date(currentYear, 1, 3); // Month is 0-indexed (Jan=0, Feb=1)
+            // TEST: Unlock at 18:00 today (Jan 30)
+            const targetDate = new Date(currentYear, 0, 30, 18, 0, 0);
 
-            // If it's already past Feb 3rd, unlock
+            // If it's already past target date, unlock
             if (now >= targetDate) {
                 setIsUnlocked(true);
             } else {
-                // Calculate days left
-                const diffTime = Math.abs(targetDate.getTime() - now.getTime());
-                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                setTimeLeft(`${diffDays} day${diffDays > 1 ? 's' : ''}`);
+                // Calculate time left
+                const diffTime = targetDate.getTime() - now.getTime();
+
+                // If less than a day, show hours/minutes
+                if (diffTime < 1000 * 60 * 60 * 24) {
+                    const hours = Math.floor((diffTime / (1000 * 60 * 60)) % 24);
+                    const minutes = Math.floor((diffTime / (1000 * 60)) % 60);
+                    setTimeLeft(`${hours} sa ${minutes} dk`);
+                } else {
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                    setTimeLeft(`${diffDays} gün`);
+                }
             }
         };
 
@@ -36,9 +44,9 @@ const FinalSection: React.FC = () => {
                 <div className={styles.lockedState}>
                     <Lock size={40} className={styles.lockIcon} />
                     <p className={styles.lockedText}>
-                        Wait until February 3rd
+                        3 Şubat'ı bekle (Test: 18:00)
                     </p>
-                    <span className={styles.countdown}>{timeLeft} remaining</span>
+                    <span className={styles.countdown}>{timeLeft} kaldı</span>
                 </div>
             ) : (
                 <div className={styles.unlockedState}>
@@ -46,18 +54,18 @@ const FinalSection: React.FC = () => {
                         <div className={styles.finalMedia}>
                             {/* Placeholder for Final Photo/Video */}
                             <div className={styles.mediaPlaceholder}>
-                                <span>Anniversary Moment</span>
+                                <span>Yıldönümü Anı - TEST</span>
                             </div>
                         </div>
 
                         <div className={styles.message}>
-                            <p>This isn’t just an anniversary.</p>
-                            <p>It’s time we chose each other.</p>
+                            <p>Bu sadece bir yıldönümü değil.</p>
+                            <p>Birbirimizi seçtiğimiz gün. (TEST)</p>
                         </div>
 
                         <div className={styles.infinityContainer}>
                             <span className={styles.infinity}>∞</span>
-                            <span className={styles.infinityLabel}>Still continuing</span>
+                            <span className={styles.infinityLabel}>Sonsuza dek</span>
                         </div>
                     </div>
                 </div>

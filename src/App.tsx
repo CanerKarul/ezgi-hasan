@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Intro from './components/Intro';
 import Timeline from './components/Timeline';
+import SnowEffect from './components/SnowEffect';
 import { memories } from './data/memories';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
 
   return (
     <div style={{ width: '100%', minHeight: '100vh', position: 'relative' }}>
+      <SnowEffect />
       {!started && <Intro onStart={() => setStarted(true)} />}
 
       {started && (
