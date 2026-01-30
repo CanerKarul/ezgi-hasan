@@ -1,0 +1,89 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    z-index: 50;
+    transition: opacity 1s ease-in-out;
+}
+
+.content {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.date {
+    font-size: 3rem;
+    letter-spacing: 0.2em;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.subtitle {
+    font-family: var(--font-sans);
+    color: var(--text-secondary);
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.startButton {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    border: 1px solid transparent;
+    padding: 0.8rem 2.5rem;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.startButton::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 1px;
+    background-color: var(--text-primary);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.startButton:hover::after {
+    width: 80%;
+}
+
+.startButton:hover {
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .date {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        padding: 0 20px;
+    }
+}

@@ -1,0 +1,31 @@
+.scaffold {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 0;
+    min-height: 100vh;
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.2);
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.nodesContainer {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .line {
+        left: 26px;
+        /* Align with node dots on mobile */
+    }
+}
