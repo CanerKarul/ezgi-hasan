@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Intro from './components/Intro';
 import Timeline from './components/Timeline';
 import SnowEffect from './components/SnowEffect';
+import MusicQR from './components/MusicQR';
 import { memories } from './data/memories';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           transition: 'opacity 1.5s ease-in'
         }}>
           <Timeline memories={memories} />
+          <MusicQR />
         </div>
       )}
     </div>
