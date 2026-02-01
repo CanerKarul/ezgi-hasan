@@ -3,6 +3,7 @@ import Intro from './components/Intro';
 import Timeline from './components/Timeline';
 import SnowEffect from './components/SnowEffect';
 import MusicQR from './components/MusicQR';
+import Footer from './components/Footer';
 import { memories } from './data/memories';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         }}>
           <Timeline memories={memories} />
           <MusicQR />
+          <Footer />
         </div>
       )}
     </div>

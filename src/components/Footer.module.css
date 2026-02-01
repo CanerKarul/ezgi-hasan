@@ -1,0 +1,57 @@
+.footer {
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 20;
+    margin-top: 50px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    /* Assuming this var exists from other css */
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 8px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.link:hover {
+    color: var(--accent-gold);
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.heart {
+    fill: var(--accent-gold);
+    stroke: var(--accent-gold);
+    animation: beat 1.5s ease infinite;
+}
+
+.brand {
+    font-weight: 600;
+}
+
+@keyframes beat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
